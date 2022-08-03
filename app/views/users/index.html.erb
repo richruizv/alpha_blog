@@ -1,0 +1,29 @@
+<h1> Alpha Bloggers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th></th>
+      <th>User</th>
+      <th>Email</th>
+      <th>Articles</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td>
+          <%= gravatar_for(user, size: 50) %>
+        </td>
+        <td><%= user.username %> </td>
+        <td><%= user.email %></td>
+        <td><%= pluralize user.articles.count, "article" %></td>
+        <td>
+            <%= link_to 'Show', user_path(user) %>
+            <%= link_to 'Edit', edit_user_path(user) %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
