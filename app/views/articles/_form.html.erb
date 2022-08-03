@@ -1,9 +1,4 @@
-<% if @article.errors.any? %>
-  <h2> The following erros prevented the article from being saved</h2>
-  <% @article.errors.full_messages.each do |msg| %>
-    <%= msg %>
-  <% end %>
-<% end %>
+<%= render 'shared/errors', obj: @article %>
 <%= form_with(model: @article,  data: {turbo: false}) do |f| %>
   <p>
     <%= f.label :title %><br/>
