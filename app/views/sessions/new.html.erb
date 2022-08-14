@@ -1,0 +1,15 @@
+<h1> Log in </h1>
+
+<%= form_with(scope: :session, url: login_path, data: {turbo: false}) do |f| %>
+  <p>
+    <%= f.label :email %><br/>
+    <%= f.email_field :email, placeholder: 'enter your email address' %>
+  </p>
+  <p>
+    <%= f.label :password %><br/>
+    <%= f.password_field :password, placeholder: 'Enter your password' %>
+  </p>
+  <p>
+    <%= f.submit  "Log in"  %>
+  </p>
+<% end %>
