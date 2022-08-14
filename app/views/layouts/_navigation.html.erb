@@ -6,5 +6,9 @@
     <li>
       <%= link_to "Bloggers", users_path %>
     </li>
+    <li>
+      <%= link_to "Log in", login_path %>
+      <%= link_to "Logout", logout_path, data: { "turbo-method": :delete }  %>
+    </li>
   </ul>
 </nav>
