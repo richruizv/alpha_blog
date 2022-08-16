@@ -2,7 +2,9 @@
 
 <%= gravatar_for @user, size:200 %>
 <br>
-<%= link_to 'Edit your profile', edit_user_path(@user) %>
+<% if logged_in? && @user == current_user %>
+  <%= link_to 'Edit your profile', edit_user_path(@user) %>
+<% end %>
 
 <h3>Articles </h3>
 <%= will_paginate @articles %>
