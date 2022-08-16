@@ -1,14 +1,22 @@
 <nav>
   <ul>
-  <li>
+    <li>
+      Alpha blog
+    </li>
+    <li>
       <%= link_to "Home", root_path %>
     </li>
     <li>
       <%= link_to "Bloggers", users_path %>
     </li>
     <li>
-      <%= link_to "Log in", login_path %>
+      <% if logged_in? %>
+      <%= link_to current_user.username, user_path(current_user)  %>
       <%= link_to "Logout", logout_path, data: { "turbo-method": :delete }  %>
+      <% else %>
+        <%= link_to "Log in", login_path %>
+        <%= link_to "Sign up", signup_path %>
+      <% end %>
     </li>
   </ul>
 </nav>
