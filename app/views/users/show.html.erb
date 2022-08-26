@@ -2,7 +2,7 @@
 
 <%= gravatar_for @user, size:200 %>
 <br>
-<% if logged_in? && @user == current_user %>
+<% if logged_in? && (@user == current_user || current_user.admin? ) %>
   <%= link_to 'Edit your profile', edit_user_path(@user) %>
 <% end %>
 

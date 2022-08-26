@@ -22,9 +22,14 @@
         <td><%= pluralize user.articles.count, "article" %></td>
         <td>
             <%= link_to 'Show', user_path(user) %>
-            <% if logged_in? && user == current_user %>
+            <% if logged_in? && (user == current_user || current_user.admin? ) %>
               <%= link_to 'Edit', edit_user_path(user) %>
             <% end %>
+        </td>
+        <td>
+          <% if current_user.admin? %>
+            <%= link_to "Delete user", user_path(user),  data: { "turbo-method": :delete, turbo_confirm: "are you sure?" } %>
+          <%end %>
         </td>
       </tr>
     <% end %>
