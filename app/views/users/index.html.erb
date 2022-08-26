@@ -27,7 +27,7 @@
             <% end %>
         </td>
         <td>
-          <% if current_user.admin? %>
+          <% if current_user&.admin? %>
             <%= link_to "Delete user", user_path(user),  data: { "turbo-method": :delete, turbo_confirm: "are you sure?" } %>
           <%end %>
         </td>
