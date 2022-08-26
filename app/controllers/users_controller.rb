@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show,:edit,:update]
-  before_action :require_user, except: [:index, :show]
+  before_action :set_user, only: [:show,:edit,:update,:destroy]
+  before_action :require_user, except: [:index, :show, :new, :create]
   before_action :require_same_user, only: [:edit, :update, :destroy]
 
   def show
@@ -36,6 +36,13 @@ class UsersController < ApplicationController
     else
         render 'edit'
     end
+  end
+
+  def destroy
+    @user.destroy
+    session[:user_id] = nil
+    flash[:notice] = "Account and all associated articles succesfully deleted"
+    redirect_to articles_path
   end
 
   private

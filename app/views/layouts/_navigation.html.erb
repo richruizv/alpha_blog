@@ -29,6 +29,9 @@
         <li>
           <%= link_to "Edit your profile", edit_user_path(current_user) %>
         </li>
+        <li>
+          <%= link_to "Delete profile", user_path(current_user), data: { "turbo-method": :delete, turbo_confirm: "are you sure?" } %>
+        </li>
       </ul>
       <%= link_to "Logout", logout_path, data: { "turbo-method": :delete }  %>
       <% else %>
