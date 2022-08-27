@@ -8,6 +8,7 @@
     </li>
     <li>
       <%= link_to "Articles", articles_path %>
+      <% if logged_in? %>
       <ul>
         <li>
           <%= link_to "View articles", articles_path %>
@@ -18,9 +19,11 @@
           </li>
         <% end %>
       </ul>
+      <% end %>
     </li>
     <li>
       <%= link_to "Categories", categories_path %>
+      <% if logged_in? %>
       <ul>
         <li>
           <%= link_to "View categories", categories_path %>
@@ -31,6 +34,7 @@
           </li>
         <% end %>
       </ul>
+      <% end %>
     </li>
     <li>
       <%= link_to "Bloggers", users_path %>
