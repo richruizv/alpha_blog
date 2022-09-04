@@ -1,1 +1,9 @@
 <h1>Category <%= @category.name %></h1>
+<br>
+<% if logged_in? && current_user.admin? %>
+  <%= link_to 'Edit category name', edit_category_path(@category) %>
+<% end %>
+
+<h3>Articles </h3>
+<%= will_paginate @articles %>
+<%= render 'articles/article' %>

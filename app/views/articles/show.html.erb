@@ -2,6 +2,11 @@
 <p><strong>Title: </strong><%= @article.title %></p>
 <p><strong>Description: </strong><%= @article.description %></p>
 <p><strong>By: </strong><%= @article.user.username %></p>
+<p>
+  <% if @article.categories.any? %>
+    <%= render @article.categories %>
+  <% end%>
+</p>
 
 <% if logged_in? && (@article.user == current_user || current_user.admin? ) %>
   <%= link_to 'Edit', edit_article_path(@article) %> |
